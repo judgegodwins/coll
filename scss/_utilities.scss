@@ -1,0 +1,22 @@
+$fontfamily: 'Nunito', sans-serif;
+$themecolor: rgb(159, 105, 221);
+
+* {
+    box-sizing: border-box;
+}
+
+html, body, #root {
+    height: 100%
+}
+
+body {
+    margin: 0;
+    padding: 0;
+    font-family: $fontfamily;
+}
+
+@mixin flex($justify: center, $align: center) {
+    display: flex;
+    justify-content: $justify;
+    align-items: $align;
+}

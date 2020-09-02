@@ -1,0 +1,26 @@
+.call-screen {
+    width: 100%;
+    height: 100%;
+    position: relative;
+
+    .local-video-cover {
+        position: absolute;
+        height: 200px;
+        width: 150px;
+        bottom: 100px;
+        right: 20px;
+        background: white;
+        padding: 1px;
+        z-index: 3;
+
+        &>video {
+            height: 100%;
+            width: 100%;
+        }
+    }
+
+    #remote-video {
+        width: 100%;
+        height: 100%;
+    }
+}

@@ -1,0 +1,62 @@
+.home {
+    height: 100%;
+    width: 100%;
+    background: rgba(0,0,0,.1);
+}
+
+.topbar {
+    @include flex();
+    width: 100%;
+    background-color: #fff;
+    border-bottom-left-radius: 15%;
+    border-bottom-right-radius: 15%;
+    padding: 20px;
+
+    .profile-img {
+        // padding-right: 20px;
+        @include flex($justify: flex-start);
+        height: 50px;
+        width: 50px;
+
+        &>img {
+            height: 40px;
+            width: 40px;
+            border-radius: 30%;
+        }
+    }
+
+    .detail {
+        flex-grow: 1;
+
+        &>h3 {
+            font-size: 19px;
+            margin: 0;
+        }
+    }
+
+    .icons {
+        .icon {
+            height: 50px;
+            width: 50px;
+            @include flex();
+            font-weight: 300;
+            color: $themecolor;
+            position: relative;
+
+            &::after {
+                position: absolute;
+                content: '';
+                width: 80%;
+                height: 80%;
+                border-radius: 50%;
+            }
+
+            &:hover {
+
+                &::after {
+                    background: rgba(0,0,0,.1);
+                }
+            }
+        }
+    }
+}
