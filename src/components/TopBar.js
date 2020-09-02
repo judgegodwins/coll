@@ -1,5 +1,5 @@
 import React from 'react';
-import profileImage from '../assets/images/profile.webp';
+import profileImage from '../assets/images/profile.png';
 
 
 function TopBar() {
