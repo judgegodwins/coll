@@ -22,7 +22,7 @@ class CallScreen extends Component {
 
         navigator.mediaDevices.getUserMedia(streamConstraints)
             .then(stream => {
-                this.localVideo.current.srcObject = stream;   
+                this.localVideo.current.srcObject = stream;
                 this.remoteVideo.current.srcObject = stream;   
             })
             .catch(error => console.warn(error));
