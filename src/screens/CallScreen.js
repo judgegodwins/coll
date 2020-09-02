@@ -23,7 +23,7 @@ class CallScreen extends Component {
         navigator.mediaDevices.getUserMedia(streamConstraints)
             .then(stream => {
                 this.localVideo.current.srcObject = stream;
-                this.remoteVideo.current.srcObject = stream;   
+                this.remoteVideo.current.srcObject = stream;
             })
             .catch(error => console.warn(error));
     }
@@ -36,6 +36,12 @@ class CallScreen extends Component {
                     <video id="local-video" autoPlay muted ref={this.localVideo}></video>
                 </div>
                 <video id="remote-video" autoPlay ref={this.remoteVideo}></video>
+                <div className="about">
+                    <h1>James</h1>
+                </div>
+                <div className="end-call">
+                    <i className="fas fa-phone"></i>
+                </div>
             </div>
         )
     }
