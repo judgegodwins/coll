@@ -2,6 +2,7 @@
     width: 100%;
     height: 100%;
     position: relative;
+    background: #000;
 
     .local-video-cover {
         position: absolute;
@@ -19,17 +20,26 @@
         }
     }
 
-    #remote-video {
+    #remote-video, .loading {
         position: absolute;
         width: 100%;
         height: 100%;
         object-fit: fill;
     }
 
-    .about {
+    .loading {
+        background: transparent;
+        @include flex();
         position: absolute;
         top: 0;
         left: 0;
+    }
+
+    .about {
+        // position: fixed;
+        // top: 0;
+        // left: 0;
+        z-index: 5;
         width: 100%;
         padding: 5px $sidepadding;
         background: linear-gradient(180deg,
@@ -40,27 +50,24 @@
         & > h1 {
             color: white;
             z-index: 100;
-        }
+        }   
+    }
 
+    .status {
+        width: 100%;
+        background: #f00;
         
+        & > p {
+            color: #fff;
+            text-align: center;
+        }
     }
 
     .end-call {
         position: absolute;
         bottom: 30px;
         left: 50%;
-        background: #f00;
-        width: 60px;
-        height: 60px;
-        border-radius: 50%;
-        @include flex();
         transform: translateX(-50%);
-
-        &>i {
-            color: white;
-            transform: rotate(90deg);
-            font-size: 20px;
-        }
     }
 }
 

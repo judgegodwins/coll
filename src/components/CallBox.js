@@ -1,24 +1,25 @@
 import React from 'react';
+import { withRouter } from 'react-router-dom';
 
 import profileImage from '../assets/images/profile.png';
 
-function TopBar({ username }) {
+function CallBox({ history, person }) {
 
     return (
-        <div className="topbar tab">
+        <div className="call-box tab">
             <div className="profile-img">
                 <img src={profileImage} alt="profile" />
             </div>
             <div className="detail">
-                <h3>{username}</h3>
+                <p>{person.username}</p>
             </div>
             <div className="icons">
-                <div className="icon">
-                    <i className="fas fa-search"></i>
+                <div className="icon" onClick={() => history.push(`/call/${person.id}?username=${person.username}`)}>
+                    <i className="fas fa-phone"></i>
                 </div>
             </div>
         </div>
     )
 }
 
-export default TopBar;
+export default withRouter(CallBox);

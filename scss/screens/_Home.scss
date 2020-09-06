@@ -1,10 +1,10 @@
 .home {
     height: 100%;
     width: 100%;
-    background: rgba(0,0,0,.1);
+    background: $defaultbackground;
 }
 
-.topbar {
+.tab {
     @include flex();
     width: 100%;
     background-color: #fff;
@@ -33,30 +33,23 @@
             margin: 0;
         }
     }
+}
 
-    .icons {
-        .icon {
-            height: 50px;
-            width: 50px;
-            @include flex();
-            font-weight: 300;
-            color: $themecolor;
-            position: relative;
+.call-box-cover {
+    width: 100%;
 
-            &::after {
-                position: absolute;
-                content: '';
-                width: 80%;
-                height: 80%;
-                border-radius: 50%;
-            }
+    padding: $sidepadding;
 
-            &:hover {
+    .call-box {
+        @include flex();
+        width: 100%;
+        padding: 8px;
+        background: #fff;
+        border-radius: 10px;
+    }
 
-                &::after {
-                    background: rgba(0,0,0,.1);
-                }
-            }
-        }
+    p {
+        font-weight: 500;
+        
     }
 }

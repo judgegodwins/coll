@@ -1,0 +1,49 @@
+
+.rythmer {
+    width: 100px;
+    height: 30px;
+    @include flex($justify: space-evenly);
+
+    .circle {
+        width: 30px;
+        height: 100%;
+        background: #fff;
+        border-radius: 50%;
+        -webkit-animation: identifier 1.4s infinite ease-in-out both;
+        animation: identifier 1.4s infinite ease-in-out both;
+
+        &:nth-child(1) {
+            animation-delay: -0.32s;
+        }
+
+        &:nth-child(2) {
+            animation-delay: -0.16s;
+        }
+    }
+}
+
+@-webkit-keyframes identifier {
+
+    0%,80%,100% {
+        -webkit-transform: scale(0);
+    }
+
+    40% {
+        -webkit-transform: scale(1.0);
+    }
+}
+
+@keyframes identifier {
+
+    0%,
+    80%,
+    100% {
+        -webkit-transform: scale(0);
+        transform: scale(0)
+    }
+
+    40% {
+        -webkit-transform: scale(1.0);
+        transform: scale(1.0);
+    }
+}

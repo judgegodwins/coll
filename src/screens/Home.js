@@ -1,13 +1,20 @@
 import React, { Component } from 'react';
 
 import TopBar from '../components/TopBar';
+import CallBoxCover from '../components/CallBoxCover'
 
 class Home extends Component {
 
+    constructor(props) {
+        super(props);
+    }
+
     render() {
+        const {people, username} = this.props
         return (
             <div className="home">
-                <TopBar />
+                <TopBar username={this.props.username} />
+                <CallBoxCover people={people} username={username} />
             </div>
         )
     }
