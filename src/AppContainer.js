@@ -8,6 +8,10 @@ import IncomingCall from './screens/IncomingCall';
 
 var socket;
 
+const apiUrl = process.env.NODE_ENV === 'production'
+    ? 'https://collapi.herokuapp.com/'
+    : '/'
+
 class AppContainer extends Component {
 
     constructor(props) {
@@ -27,7 +31,8 @@ class AppContainer extends Component {
     }
 
     async componentDidMount() {
-        this.socket = await io.connect('/');
+
+        this.socket = await io.connect(apiUrl);
 
         socket = this.socket
 
@@ -79,13 +84,13 @@ class AppContainer extends Component {
                     socketConnected
                         ? <Fragment>
                             <PrivateRoute path="/" exact component={Home} username={username} people={people} />
-                            <PrivateRoute 
-                                path="/call/:room" 
-                                exact 
-                                component={CallScreen} 
-                                username={username} 
-                                answered={answered} 
-                                setAnswered={this.setAnswered} 
+                            <PrivateRoute
+                                path="/call/:room"
+                                exact
+                                component={CallScreen}
+                                username={username}
+                                answered={answered}
+                                setAnswered={this.setAnswered}
                                 setCallState={this.setCall}
                                 people={people}
                             />
