@@ -1,5 +1,4 @@
 import React, { Component, Fragment } from 'react';
-import { Route } from 'react';
 import io from 'socket.io-client'
 
 import PrivateRoute from './components/PrivateRoute';

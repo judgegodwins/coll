@@ -146,7 +146,7 @@ class CallScreen extends Component {
                     status: 'Call Declined'
                 })
 
-                this.props.setAnswered(true)
+                setAnswered(true)
 
                 setTimeout(() => {
                     this.endCall();
@@ -194,7 +194,7 @@ class CallScreen extends Component {
     }
 
     render() {
-        const { people, match } = this.props;
+        // const { people, match } = this.props;
         const { search } = this.props.location;
         const username = query('username', search);
 

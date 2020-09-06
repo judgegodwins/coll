@@ -5,10 +5,6 @@ import CallBoxCover from '../components/CallBoxCover'
 
 class Home extends Component {
 
-    constructor(props) {
-        super(props);
-    }
-
     render() {
         const {people, username} = this.props
         return (
