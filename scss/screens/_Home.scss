@@ -46,6 +46,10 @@
         padding: 8px;
         background: #fff;
         border-radius: 10px;
+        
+        &:not(:last-child) {
+            margin-bottom: 10px;
+        }
     }
 
     p {

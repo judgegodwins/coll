@@ -1,6 +1,8 @@
 
 import React, { Component } from 'react';
 
+import Loading from '../components/Loading';
+
 import { socket } from '../AppContainer';
 import query from '../util/query';
 
@@ -154,6 +156,20 @@ class CallScreen extends Component {
             }
         })
 
+        socket.on('busy', ({ id }) => {
+            if (match.params.room === id) {
+                this.setState({
+                    status: 'User is on another call'
+                })
+
+                setAnswered(true)
+
+                setTimeout(() => {
+                    this.endCall();
+                }, 2000);
+            }
+        })
+
     }
 
     endCall(callback) {
@@ -188,7 +204,7 @@ class CallScreen extends Component {
     }
 
     onAddStream(e) {
-        console.log('stream: ', e.streams);
+        // console.log('stream: ', e.streams);
         this.props.setAnswered(true);
         this.remoteVideo.current.srcObject = e.streams[0];
     }
@@ -214,13 +230,7 @@ class CallScreen extends Component {
                 {
                     this.props.answered
                         ? <video id="remote-video" autoPlay ref={this.remoteVideo}></video>
-                        : <div className="loading">
-                            <div className="rythmer">
-                                <div className="circle"></div>
-                                <div className="circle"></div>
-                                <div className="circle"></div>
-                            </div>
-                        </div>
+                        : <Loading color="#fff" />   
 
                 }
                 <div

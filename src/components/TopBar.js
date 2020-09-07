@@ -1,8 +1,9 @@
 import React from 'react';
 
 import profileImage from '../assets/images/profile.png';
+import { withRouter } from 'react-router-dom';
 
-function TopBar({ username }) {
+function TopBar({ username, history }) {
 
     return (
         <div className="topbar tab">
@@ -13,7 +14,12 @@ function TopBar({ username }) {
                 <h3>{username}</h3>
             </div>
             <div className="icons">
-                <div className="icon">
+                <div 
+                    className="icon"
+                    onClick={() => {
+                        history.push('/search')
+                    }}
+                >
                     <i className="fas fa-search"></i>
                 </div>
             </div>
@@ -21,4 +27,4 @@ function TopBar({ username }) {
     )
 }
 
-export default TopBar;
+export default withRouter(TopBar);

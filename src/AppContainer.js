@@ -5,6 +5,7 @@ import PrivateRoute from './components/PrivateRoute';
 import Home from './screens/Home';
 import CallScreen from './screens/CallScreen';
 import IncomingCall from './screens/IncomingCall';
+import SearchScreen from './screens/SearchScreen';
 
 var socket;
 
@@ -50,9 +51,12 @@ class AppContainer extends Component {
         });
 
         socket.on('new_call', data => {
-            console.log(data);
-            console.log('children: ', this.props.children);
-            this.props.history.push(`/incoming-call/${data.room}/${data.from}`)
+
+            if(!this.state.onCall) {
+                this.props.history.push(`/incoming-call/${data.room}/${data.from}`)
+            } else {
+                socket.emit('busy', { id: data.id });
+            }
         })
 
         socket.on('full', () => {
@@ -84,6 +88,7 @@ class AppContainer extends Component {
                     socketConnected
                         ? <Fragment>
                             <PrivateRoute path="/" exact component={Home} username={username} people={people} />
+                            <PrivateRoute path="/search" exact component={SearchScreen} username={username} people={people} />
                             <PrivateRoute
                                 path="/call/:room"
                                 exact

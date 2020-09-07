@@ -27,14 +27,6 @@
         object-fit: fill;
     }
 
-    .loading {
-        background: transparent;
-        @include flex();
-        position: absolute;
-        top: 0;
-        left: 0;
-    }
-
     .about {
         // position: fixed;
         // top: 0;

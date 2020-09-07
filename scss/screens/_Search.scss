@@ -1,0 +1,26 @@
+
+.search-screen {
+    background: $defaultbackground;
+
+    .search-box {
+        width: 100%;
+        padding: 5px $sidepadding;
+        @include flex();
+        background: #fff;
+        border-bottom-left-radius: 15%;
+        border-bottom-right-radius: 15%;
+    
+        .icon {
+            justify-content: flex-start;
+        }
+    
+        & > input {
+            height: 50px;
+            flex-grow: 1;
+            border: none;
+            outline: none;
+            font-size: 17px;
+        }
+    }
+
+}
