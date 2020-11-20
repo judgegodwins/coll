@@ -5,15 +5,18 @@ function CallBoxCover({ people, username }) {
 
     const otherPeople = people.filter(person => person.username !== username)
 
+    console.log('username: ', username, 'otherpeople: ', otherPeople)
     return (
         <div className="call-box-cover">
             {
-                otherPeople
+                otherPeople.length > 0
                     ? otherPeople.map(person => (
                         <CallBox key={person.id} person={person} />
                     ))
                     : <div className="centered">
-                        <p>People are not online</p>
+                        <p style={{textAlign: 'center', color: 'rgba(0,0,0, .68)'}}>
+                          Other users are not online, when they are online you'll find them here or you can search for them.
+                        </p>
                     </div>
             }
         </div>
