@@ -10,7 +10,7 @@ import SearchScreen from './screens/SearchScreen';
 var socket;
 
 const apiUrl = process.env.NODE_ENV === 'production'
-    ? 'https://collapi.herokuapp.com/'
+    ? 'https://coll-api.onrender.com/'
     : '/'
 
 class AppContainer extends Component {
