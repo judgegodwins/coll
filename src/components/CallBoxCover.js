@@ -15,7 +15,8 @@ function CallBoxCover({ people, username }) {
                     ))
                     : <div className="centered">
                         <p style={{textAlign: 'center', color: 'rgba(0,0,0, .68)'}}>
-                          Other users are not online, when they are online you'll find them here or you can search for them.
+                          Other users are not online, when they are online you'll find them here or you can search for them.<br/>
+                          You can try joining on another device to test the video call functionality using this device and the second device.
                         </p>
                     </div>
             }
